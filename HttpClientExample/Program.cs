@@ -11,7 +11,7 @@ builder.Services.AddSwaggerGen();
 
 // Register the HttpClient service
 builder.Services.AddHttpClient();
-builder.Services.AddSingleton<ApiService>();
+builder.Services.AddScoped<IPostsService, PostsService>();
 
 var app = builder.Build();
 

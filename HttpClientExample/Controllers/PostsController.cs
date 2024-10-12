@@ -7,12 +7,12 @@ namespace HttpClientExample.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ApiController(ApiService apiService) : ControllerBase
+    public class PostsController(IPostsService apiService) : ControllerBase
     {
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Post>>> GetAllPosts()
         {
-            var result = await apiService.GetDataAsync();
+            var result = await apiService.GetPostsAsync();
 
             return Ok(result);
         }
